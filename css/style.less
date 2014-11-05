@@ -1,0 +1,114 @@
+/* Variables */
+@yellow-color: #fff000;
+@blue-color: #6c6ffc;
+@white-color: #FFFFFF;
+
+@small-font: 10px;
+@medium-font: 16px;
+@big-font: 22px;
+
+@space-small: 10px;
+@space-medium: 20px;
+@space-big: 30px;
+
+@std-list-height: 400px;
+
+/* Mixins */
+.margin(@margin-top, @margin-right, @margin-bottom, @margin-left) {
+    margin-top: @margin-top;
+    margin-right: @margin-right;
+    margin-bottom: @margin-bottom;
+    margin-left: @margin-left;
+}
+
+.padding(@padding-top, @padding-right, @padding-bottom, @padding-left) {
+    padding-top: @padding-top;
+    padding-right: @padding-right;
+    padding-bottom: @padding-bottom;
+    padding-left: @padding-left;
+}
+
+.transition(@property, @duration, @timingFunc, @delay) {
+    -webkit-transition: @property @duration @timingFunc @delay;
+    -moz-transition: @property @duration @timingFunc @delay;
+    -o-transition: @property @duration @timingFunc @delay;
+    transition: @property @duration @timingFunc @delay;
+}
+
+/* App rules */
+html, body {
+    min-height: 550px;
+    height: 100%;
+}
+#searchContainer {
+    background-color: @yellow-color;
+}
+#saveContainer {
+    background-color: @blue-color;
+}
+
+.subtitle {
+    font-size: @big-font;
+    display: inline-block;
+    width: 100%;
+}
+
+.word-list {
+    list-style: none;
+    font-size: @medium-font;
+    padding-left: 12px;
+    background: rgba(222,222,222,0.5);
+    overflow-y: scroll;
+    margin-top: @space-small;
+    height: @std-list-height;
+}
+
+.word-item {
+    cursor: pointer;
+    .transition(background, .5s, linear, 0);
+    position: relative;
+}
+
+.word-item i {
+    position: absolute;
+    right: 20px;
+}
+
+.word-item:hover {
+    background: rgba(160, 160, 160, 0.3);
+}
+
+.word-to-save,
+.word-translation,
+.word-example {
+    font-size: @big-font;
+    color: @white-color;
+    z-index: 999;
+    cursor: pointer;
+}
+
+/* Custom utility classes */
+.full-height {
+    height: 100%;
+}
+
+.margin-top-small {
+    .margin(@space-small, 0, 0, 0);
+}
+
+.margin-top-big {
+    .margin(@space-big, 0, 0, 0);
+}
+
+.padding-top-small {
+    .padding(@space-small, 0, 0, 0);
+}
+
+.padding-top-big {
+    .padding(@space-big, 0, 0, 0);
+}
+
+.inline-block {
+    display: inline-block;
+
+}

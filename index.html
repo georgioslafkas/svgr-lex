@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html data-ng-app="svgr" data-ng-controller="SvgrController">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf8">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/xeditable.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet/less" type="text/css" href="css/style.less">
+    <title>Homemade SVGR Lexikon</title>
+</head>
+<body>
+    <div class="container-fluid full-height">
+        <div class="row full-height">
+            <div id="searchContainer" class="left full-height col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <span class="subtitle margin-top-big">Βρες τη λέξη/φράση...</span>
+                        <input type="search" class="form-control margin-top-small" data-ng-model="query">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <ul class="word-list">
+                            <li class="word-item margin-top-small" data-ng-repeat="word in words | filter: query"
+                            data-ng-click="selectWord(word)">{{ word.text }}<i class="fa fa-eraser"
+                            data-ng-click="erase(word)"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="saveContainer" class="right full-height col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="row pull-right margin-top-big">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <button type="button" class="btn-new-word btn btn-default"
+                        data-ng-click="newWord()">Νέα λέξη</button>
+                    </div>
+                </div>
+                <div class="row pull-left">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="subtitle margin-top-big">Η λέξη/φράση...</div>
+                        <div class="word-to-save" data-ng-if="word"
+                        data-editable-text="word.text" data-onaftersave="save()"> {{ word.text }} </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="subtitle margin-top-big padding-top-small"> σημαίνει </div>
+                        <div class="word-translation padding-top-small" data-ng-if="word"
+                        data-editable-text="word.translation" data-onaftersave="save()"> {{ word.translation }} </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="subtitle margin-top-big padding-top-small"> Παράδειγμα </div>
+                        <div class="word-example padding-top-small" data-ng-if="word"
+                        data-editable-text="word.example" data-onaftersave="save()"> {{ word.example }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script type="text/Javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.5/less.min.js"></script>
+    <script type="text/Javascript" src="js/xeditable.min.js"></script>
+    <script type="text/Javascript" src="js/svgr.js"></script>
+</body>
+</html>
