@@ -2,6 +2,7 @@
 @yellow-color: #fff000;
 @blue-color: #6c6ffc;
 @white-color: #FFFFFF;
+@light-gray-color: #f7f7f7;
 
 @small-font: 10px;
 @medium-font: 16px;
@@ -40,11 +41,16 @@ html, body {
     min-height: 550px;
     height: 100%;
 }
+
+body {
+    background: @light-gray-color;
+}
+
 #searchContainer {
-    background-color: @yellow-color;
+    background: url('../img/bkg-left.png');
 }
 #saveContainer {
-    background-color: @blue-color;
+    background: url('../img/bkg-right.png');
 }
 
 .subtitle {
@@ -67,15 +73,15 @@ html, body {
     cursor: pointer;
     .transition(background, .5s, linear, 0);
     position: relative;
+
+    &:hover {
+        background: rgba(160, 160, 160, 0.3);
+    }
 }
 
 .word-item i {
     position: absolute;
     right: 20px;
-}
-
-.word-item:hover {
-    background: rgba(160, 160, 160, 0.3);
 }
 
 .word-to-save,
