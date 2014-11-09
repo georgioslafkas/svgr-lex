@@ -7,25 +7,28 @@
     <link rel="stylesheet" type="text/css" href="css/xeditable.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet/less" type="text/css" href="css/style.less">
-    <title>Homemade SVGR Lexikon</title>
+    <title>Homemade Empirical SVGR Lexikon</title>
 </head>
 <body>
     <div class="container-fluid full-height">
         <div class="row full-height">
             <div id="searchContainer" class="left full-height col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
                         <span class="subtitle margin-top-big">Βρες τη λέξη/φράση...</span>
                         <input type="search" class="form-control margin-top-small" data-ng-model="query">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
                         <ul class="word-list">
-                            <li class="word-item margin-top-small" data-ng-repeat="word in words | filter: query"
+                            <li class="word-item margin-top-small" data-ng-repeat="word in words | filter: query | orderBy: 'text'"
                             data-ng-click="selectWord(word)">{{ word.text }}<i class="fa fa-eraser"
                             data-ng-click="erase(word)"></i></li>
                         </ul>
+                    </div>
+                    <div class="half-ellipse-left hidden-xs hidden-sm">
+                        sv
                     </div>
                 </div>
             </div>
@@ -55,6 +58,9 @@
                         <div class="subtitle margin-top-big padding-top-small"> Παράδειγμα </div>
                         <div class="word-example padding-top-small" data-ng-if="word"
                         data-editable-text="word.example" data-onaftersave="save()"> {{ word.example }}</div>
+                    </div>
+                    <div class="half-ellipse-right hidden-xs hidden-sm">
+                        gr
                     </div>
                 </div>
             </div>

@@ -1,5 +1,9 @@
 angular.module('svgr', ['xeditable'])
 
+.run(function(editableOptions) {
+    editableOptions.theme = 'bs3';
+})
+
 .controller('SvgrController', function($scope, $http) {
 
     $scope.words = [];

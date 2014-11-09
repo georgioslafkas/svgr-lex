@@ -1,8 +1,12 @@
 /* Variables */
-@yellow-color: #fff000;
-@blue-color: #6c6ffc;
-@white-color: #FFFFFF;
-@light-gray-color: #f7f7f7;
+@yellow: #fff000;
+@blue: #6c6ffc;
+@red: #c2003a;
+@white: #ffffff;
+@light-gray: #f7f7f7;
+@swedish-blue: #005b99;
+@greek-blue: #3b6aa0;
+@orange: #FFA33B;
 
 @small-font: 10px;
 @medium-font: 16px;
@@ -36,6 +40,19 @@
     transition: @property @duration @timingFunc @delay;
 }
 
+.border(@border-top, @border-right, @border-bottom, @border-left) {
+    border-top: @border-top;
+    border-right: @border-right;
+    border-bottom: @border-bottom;
+    border-left: @border-left;
+}
+
+.border-radius(@border-top-left-radius, @border-top-right-radius, @border-bottom-left-radius, @border-bottom-right-radius) {
+    -webkit-border-radius: @border-top-left-radius @border-top-right-radius @border-bottom-left-radius @border-bottom-right-radius;
+    -moz-border-radius: @border-top-left-radius @border-top-right-radius @border-bottom-left-radius @border-bottom-right-radius;
+    border-radius: @border-top-left-radius @border-top-right-radius @border-bottom-left-radius @border-bottom-right-radius;
+}
+
 /* App rules */
 html, body {
     min-height: 550px;
@@ -43,14 +60,16 @@ html, body {
 }
 
 body {
-    background: @light-gray-color;
+    background: @light-gray;
 }
 
 #searchContainer {
     background: url('../img/bkg-left.png');
+    .border(none, 3px solid @swedish-blue, none, none);
 }
 #saveContainer {
     background: url('../img/bkg-right.png');
+    .border(none, none, none, 3px solid @greek-blue);
 }
 
 .subtitle {
@@ -63,34 +82,80 @@ body {
     list-style: none;
     font-size: @medium-font;
     padding-left: 12px;
-    background: rgba(222,222,222,0.5);
+    padding-right: 12px;
+    background: rgba(109, 121, 143, 0.5);
     overflow-y: scroll;
     margin-top: @space-small;
     height: @std-list-height;
+    color: @white;
+    .border-radius(10px, 10px, 10px, 10px);
 }
 
 .word-item {
     cursor: pointer;
-    .transition(background, .5s, linear, 0);
+    .transition(background, .3s, linear, 0);
     position: relative;
+    .border-radius(5px, 5px, 5px, 5px);
+    padding-left: 5px;
+    height: 22px;
 
     &:hover {
-        background: rgba(160, 160, 160, 0.3);
+        background: rgba(255, 163, 59, 0.6);
     }
-}
 
-.word-item i {
-    position: absolute;
-    right: 20px;
+    i {
+        position: absolute;
+        right: 20px;
+        line-height: 22px;
+        .border-radius(12px, 12px, 12px, 12px);
+
+        &:hover {
+            color: @red;
+        }
+    }
 }
 
 .word-to-save,
 .word-translation,
 .word-example {
     font-size: @big-font;
-    color: @white-color;
+    color: @greek-blue;
     z-index: 999;
     cursor: pointer;
+    .transition(color, .3s, linear, 0);
+
+    &:hover {
+        color: @orange;
+    }
+}
+
+.half-ellipse-left {
+    height: 100px;
+    width: 50px;
+    .border-radius(100px, 0, 0, 100px);
+    background: @swedish-blue;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: @yellow;
+    text-align: right;
+    line-height: 100px;
+    font-size: @medium-font;
+}
+
+
+.half-ellipse-right {
+    height: 100px;
+    width: 50px;
+    .border-radius(0, 100px, 100px, 0);
+    background: @greek-blue;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    color: @white;
+    text-align: left;
+    line-height: 100px;
+    font-size: @medium-font;
 }
 
 /* Custom utility classes */
