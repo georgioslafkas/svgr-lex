@@ -18,6 +18,8 @@
 
 @std-list-height: 400px;
 
+@word-font: 'Noto Sans', sans-serif;
+
 /* Mixins */
 .margin(@margin-top, @margin-right, @margin-bottom, @margin-left) {
     margin-top: @margin-top;
@@ -73,13 +75,14 @@ body {
 }
 
 .subtitle {
-    font-size: @big-font;
+    font-size: @medium-font;
     display: inline-block;
     width: 100%;
 }
 
 .word-list {
     list-style: none;
+    font-family: @word-font;
     font-size: @medium-font;
     padding-left: 12px;
     padding-right: 12px;
@@ -118,7 +121,8 @@ body {
 .word-to-save,
 .word-translation,
 .word-example {
-    font-size: @big-font;
+    font-family: @word-font;
+    font-size: @medium-font;
     color: @greek-blue;
     z-index: 999;
     cursor: pointer;
@@ -135,8 +139,10 @@ body {
     .border-radius(100px, 0, 0, 100px);
     background: @swedish-blue;
     position: absolute;
-    top: 50%;
+    top: 0;
     right: 0;
+    bottom: 0;
+    margin: auto;
     color: @yellow;
     text-align: right;
     line-height: 100px;
@@ -150,8 +156,10 @@ body {
     .border-radius(0, 100px, 100px, 0);
     background: @greek-blue;
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 0;
+    bottom: 0;
+    margin: auto;
     color: @white;
     text-align: left;
     line-height: 100px;
