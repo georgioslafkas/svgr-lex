@@ -44,21 +44,21 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="subtitle margin-top-big">Η λέξη/φράση...</div>
                         <div class="word-to-save" data-ng-if="word"
-                        data-editable-text="word.text" data-onaftersave="save()"> {{ word.text }} </div>
+                        data-editable-text="word.text" data-onaftersave="save(word)"> {{ word.text }} </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="subtitle margin-top-big padding-top-small"> σημαίνει </div>
                         <div class="word-translation padding-top-small" data-ng-if="word"
-                        data-editable-text="word.translation" data-onaftersave="save()"> {{ word.translation }} </div>
+                        data-editable-text="word.translation" data-onaftersave="save(word)"> {{ word.translation }} </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="subtitle margin-top-big padding-top-small"> Παράδειγμα </div>
                         <div class="word-example padding-top-small" data-ng-if="word"
-                        data-editable-text="word.example" data-onaftersave="save()"> {{ word.example }}</div>
+                        data-editable-text="word.example" data-onaftersave="save(word)"> {{ word.example }}</div>
                     </div>
                     <div class="half-ellipse-right hidden-xs hidden-sm">
                         gr

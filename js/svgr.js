@@ -20,10 +20,14 @@ angular.module('svgr', ['xeditable'])
     $scope.newWord = function() {
         newWord = { text: "Νέα λέξη", translation: "Μετάφραση", example: "Παράδειγμα" };
         $scope.word = newWord;
-        $scope.words.push(newWord);
     };
 
-    $scope.save = function() {
+    var flag = "";
+    $scope.save = function(word) {
+        if ($scope.words.indexOf(word) < 0 && flag != "erase") {
+            $scope.words.push(word);
+        }
+        flag = "";
         $http.post('saveJson.php', $scope.data).then(function() {
             console.log("words saved");
         });
@@ -32,6 +36,7 @@ angular.module('svgr', ['xeditable'])
     $scope.erase = function(word) {
         var wordIndex = $scope.words.indexOf(word);
         $scope.words.splice(wordIndex, 1);
+        flag = "erase";
         $scope.save();
         $scope.word = null;
     }
