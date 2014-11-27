@@ -20,6 +20,8 @@
 
 @word-font: 'Noto Sans', sans-serif;
 
+@screen-xs-max: 767px;
+
 /* Mixins */
 .margin(@margin-top, @margin-right, @margin-bottom, @margin-left) {
     margin-top: @margin-top;
@@ -118,6 +120,12 @@ body {
     }
 }
 
+.button-lg {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .word-to-save,
 .word-translation,
 .word-example {
@@ -172,22 +180,38 @@ body {
 }
 
 .margin-top-small {
-    .margin(@space-small, 0, 0, 0);
+    margin-top: @space-small;
 }
 
 .margin-top-big {
-    .margin(@space-big, 0, 0, 0);
+    margin-top: @space-big;
 }
 
 .padding-top-small {
-    .padding(@space-small, 0, 0, 0);
+    padding-top: @space-small;
 }
 
 .padding-top-big {
-    .padding(@space-big, 0, 0, 0);
+    padding-top: @space-big;
 }
 
 .inline-block {
     display: inline-block;
+}
 
+.relative {
+    position: relative;
+}
+
+/* Media queries
+ * (according to Bootstrap)
+ */
+
+@media (max-width: @screen-xs-max) {
+    #searchContainer {
+        .border(none, none, 3px solid @swedish-blue, none);
+    }
+    #saveContainer {
+        .border(3px solid @greek-blue, none, none, none);
+    }
 }

@@ -13,7 +13,7 @@
 <body>
     <div class="container-fluid full-height">
         <div class="row full-height">
-            <div id="searchContainer" class="left full-height col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div id="searchContainer" class="left full-height col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="row">
                     <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
                         <span class="subtitle margin-top-big">Βρες τη λέξη/φράση...</span>
@@ -24,7 +24,7 @@
                     <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
                         <ul class="word-list">
                             <li class="word-item margin-top-small" data-ng-repeat="word in words | filter: query | orderBy: 'text'"
-                            data-ng-click="selectWord(word)">{{ word.text }}<i class="fa fa-eraser"
+                            data-ng-click="selectWord(word)">{{ word.text }}<i class="fa fa-times"
                             data-ng-click="erase(word)"></i></li>
                         </ul>
                     </div>
@@ -33,16 +33,16 @@
                     </div>
                 </div>
             </div>
-            <div id="saveContainer" class="right full-height col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="row pull-right margin-top-big">
+            <div id="saveContainer" class="right full-height col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <button type="button" class="btn-new-word btn btn-success"
-                        data-ng-click="newWord()">Νέα λέξη</button>
-                    </div>
-                </div>
-                <div class="row pull-left">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="subtitle margin-top-big">Η λέξη/φράση...</div>
+                        <div class="margin-top-big relative">
+                            <span class="subtitle">Η λέξη/φράση...</span>
+                            <button type="button"
+                            class="button-lg hidden-xs hidden-sm btn-new-word btn btn-success"
+                            data-ng-click="newWord()">Νέα λέξη
+                            </button>
+                        </div>
                         <div class="word-to-save" data-ng-if="word"
                         data-editable-text="word.text" data-onaftersave="save(word)"> {{ word.text }} </div>
                     </div>
@@ -62,6 +62,12 @@
                     </div>
                     <div class="half-ellipse-right hidden-xs hidden-sm">
                         gr
+                    </div>
+                </div>
+                <div class="row margin-top-big hidden-md hidden-lg">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <button type="button" class="btn-new-word btn btn-success"
+                        data-ng-click="newWord()">Νέα λέξη</button>
                     </div>
                 </div>
             </div>
