@@ -40,5 +40,4 @@ angular.module('svgr', ['xeditable'])
         $scope.save();
         $scope.word = null;
     }
-
 });
